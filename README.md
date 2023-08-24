@@ -22,6 +22,11 @@ Screenshots:
 Sources/Credit:
 Starter code provided by Xandromus at https://github.com/coding-boot-camp/friendly-parakeet
 
+Link to deployed site:
+
+https://chuncellor.github.io/Password-generator/
+
+
 
 
 
