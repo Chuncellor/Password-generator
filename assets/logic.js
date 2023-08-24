@@ -10,17 +10,17 @@ var numericArr = ['0', '9', '7', '3', '1', '6', '8', '4', '2', '5'];
 
 // Write password to the #password input
 function buildPassword() {
-    var lengthChoice = prompt("Enter the number of characters (from 8-128) you would like your password to be.");
+    var lengthChoice = prompt("Password Length: Please choose a number between 8 and 128.");
   
     if (isNaN(lengthChoice) || lengthChoice < 8 || lengthChoice > 128) {
-      lengthChoice = prompt("You must enter an number from 8 to 128.  Please try again.");
+      lengthChoice = prompt("Please choose a number between 8 and 128.");
     }
-   
-    var special = confirm("Include Special characters? (ex: @, &, %, etc.)");
-    var lower = confirm("Include lowercase characters?");
-    var upper = confirm("Include UPPERCASE characters?");
-    var numeric = confirm("Include Numbers (0-9)?");
-    
+     
+    var lower = confirm("Use lowercase-letters in random password?");
+    var upper = confirm("Use uppercase-letters in random password?");
+    var numeric = confirm("Use numbers in random password?");
+    var special = confirm("Use Special characters in random password?");
+
     var passwordSelection = {
       length: lengthChoice,
       hasSpecial: special,
@@ -38,14 +38,6 @@ function buildPassword() {
     console.log(passwordSelection);
     var passwordChar = [];
   
-        var specialChar = [];
-        if (passwordSelection.hasSpecial) {    
-          for (var i=0; i < passwordSelection.length; i++) {
-            var specialChar = specialArr[Math.floor(Math.random() * passwordSelection.length)];
-            passwordChar.push(specialChar);
-          }
-        }    
-  
         var lowerChar = [];
         if (passwordSelection.hasLower) {    
           for (var i=0; i < passwordSelection.length; i++) {
@@ -53,7 +45,7 @@ function buildPassword() {
             passwordChar.push(lowerChar);
           }
         }    
-  
+   
         var upperChar = [];
         if (passwordSelection.hasUpper) {    
           for (var i=0; i < passwordSelection.length; i++) {
@@ -68,7 +60,15 @@ function buildPassword() {
             var numericChar = numericArr[Math.floor(Math.random() * passwordSelection.length)];
             passwordChar.push(numericChar);
           }
+
+        }    var specialChar = [];
+        if (passwordSelection.hasSpecial) {    
+          for (var i=0; i < passwordSelection.length; i++) {
+            var specialChar = specialArr[Math.floor(Math.random() * passwordSelection.length)];
+            passwordChar.push(specialChar);
+          }
         }    
+
     var finalPassword = [];
     for (i=0; i < passwordSelection.length; i++) {
       var final=passwordChar[Math.floor(Math.random()  * passwordSelection.length)];
